@@ -5,7 +5,30 @@
 }
 	.glossary {
 		flex: 1 0 50%;
-	}	
+	}
+		.pokemon-list {}
+			.item {}
+				.pokemon-input {}
+				.label {
+					display: inline-flex;
+					align-items: center;
+				}
+					.idle-sprite {
+						content: "";
+						display: inline-block;
+						font-size: 2.62em;
+						height: 1em;
+						width: 1em;
+						background-size: contain;
+						background-position: center;
+						background-repeat: no-repeat;
+					}
+					.label .name {
+						display: inline-block;
+						margin-left: 0.62em;
+						position: relative;
+						top: 0.3em;
+					}
 	.details {
 		flex: 1 0 50%;
 		display: flex;

@@ -62,7 +62,8 @@ function init(){
 		image: document.getElementById("image"),
 		entry: document.getElementById("entry"),
 		intro: document.getElementById("intro"),
-		content: document.getElementById("content")
+		content: document.getElementById("content"),
+		list: document.getElementById("list")
 	};
 	const state = {
 		activePokemon: "",
@@ -81,13 +82,7 @@ function init(){
 	setActivePokemon = setActivePokemon.bind(true, state);
 	updateDetails    = updateDetails.bind(true, state);
 
-
-	//Adding event listeners
-	//----------------------
-	for(let input of inputs){
-		input.addEventListener("change", setActivePokemon);
-	}
-
+	populateGlossary(elements.list, Object.values(pokemon));
 
 	//EVENT HANDLERS
 	//-----------------------
@@ -111,6 +106,64 @@ function init(){
 
 	//UTILS
 	//-----------------------
+	function populateGlossary(listEl, data){
+		const listFragment = document.createDocumentFragment();
+		for(let currPokemon of data){
+
+			const {
+				id,
+				name: pokeName
+			} = currPokemon;
+
+
+			// CREATING ELEMENTS
+			// -----------------------------
+			const item   = document.createElement("li");
+			const input  = document.createElement("input");
+			const label  = document.createElement("label");
+			const sprite = document.createElement("span");
+			const name   = document.createElement("span");
+
+
+			// ADDING ATTRIBUTES
+			// -----------------------------
+			// list item
+			item.classList.add("item");
+
+			// radio input
+			input.classList.add("pokemon-input");
+			input.setAttribute("id", `poke-${id}`);
+			input.setAttribute("data-pokeid", id);
+			input.setAttribute("type", "radio");
+			input.setAttribute("name", "pokemon");
+			input.addEventListener("change", setActivePokemon);
+
+			// input label
+			label.classList.add("label");
+			label.setAttribute("for", `poke-${id}`);
+			label.setAttribute("data-pokeid", id);
+
+			// idle sprite
+			sprite.classList.add("idle-sprite");
+			sprite.style = `background-image: url(assets/2d/${id}/idle.gif`;
+
+			// name label
+			name.classList.add("name");
+			name.innerText = pokeName;
+
+
+			// ASSEMBLE ELEMENTS
+			// ------------------------------
+			label.appendChild(sprite);
+			label.appendChild(name);
+			item.appendChild(input);
+			item.appendChild(label);
+			listFragment.appendChild(item);
+		}
+
+		listEl.appendChild(listFragment);
+	}//populateGlossary
+
 	function updateDetails(currState){
 
 		//extract elements from state
@@ -173,6 +226,5 @@ function init(){
 		entryEl.innerText  = entry;
 
 		typesEl.appendChild(typesFragment);
-
 	}//updateDetails
 }//init
