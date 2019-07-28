@@ -128,6 +128,7 @@ function init(){
 			const label  = document.createElement("label");
 			const sprite = document.createElement("span");
 			const name   = document.createElement("span");
+			const idTag  = document.createElement("span");
 
 
 			// ADDING ATTRIBUTES
@@ -157,9 +158,14 @@ function init(){
 			name.classList.add("name");
 			name.innerText = discovered ? pokeName : "???";
 
+			// id tag
+			idTag.classList.add("id-tag");
+			idTag.innerText = id;
+
 
 			// ASSEMBLE ELEMENTS
 			// ------------------------------
+			name.appendChild(idTag);
 			label.appendChild(sprite);
 			label.appendChild(name);
 			item.appendChild(input);

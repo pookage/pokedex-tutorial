@@ -80,6 +80,15 @@
 						position: relative;
 						top: 0.3em;
 					}
+						.id-tag {
+							font-size: 0.62em;
+							position: absolute;
+							top: 0;
+							right: -0.62em;
+							transform: translateX(100%);
+							color: #aaa;
+							text-shadow: none;
+						}
 					.idle-sprite,
 					.label .name {
 						transform: translateX(0);
