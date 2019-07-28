@@ -18,6 +18,12 @@
 		.intro {
 			text-align: center;
 		}
+		.intro[aria-hidden="false"] {
+			display: block;
+		}
+		.intro[aria-hidden="true"] {
+			display: none;
+		}
 			.logo {
 				margin-bottom: 0.62em;
 			}
@@ -45,6 +51,11 @@
 					display: inline-block;
 					margin-top: 0.62em;
 				}
-		.container {
+		.container {}
+		.container[aria-hidden="false"] {
+			display: block;
+		}
+		.container[aria-hidden="true"] {
 			display: none;
 		}
+		

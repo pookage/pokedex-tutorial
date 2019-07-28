@@ -60,7 +60,9 @@ function init(){
 		height: document.getElementById("height"),
 		weight: document.getElementById("weight"),
 		image: document.getElementById("image"),
-		entry: document.getElementById("entry")
+		entry: document.getElementById("entry"),
+		intro: document.getElementById("intro"),
+		content: document.getElementById("content")
 	};
 	const state = {
 		activePokemon: "",
@@ -122,7 +124,9 @@ function init(){
 				height: heightEl,
 				weight: weightEl,
 				image: imageEl,
-				entry: entryEl
+				entry: entryEl,
+				intro: introEl,
+				content: contentEl
 			}
 		} = currState;
 
@@ -137,7 +141,15 @@ function init(){
 			description,
 		} = data[activePokemon];
 
-		//create type items
+		// SIDE-EFFECTS
+		//--------------------------------------
+		const showIntro     = !activePokemon;
+		const introHidden   = showIntro ? "false" : "true";
+		const contentHidden = showIntro ? "true" : "false";
+
+		// UPDATING DOM
+		// ---------------------------------------
+		// create type items
 		const typesFragment = document.createDocumentFragment();
 		for(let elementalType of types){
 			const item     = document.createElement("li");
@@ -145,6 +157,10 @@ function init(){
 
 			typesFragment.appendChild(item);
 		}
+
+		//toggle intro visibility
+		intro.setAttribute("aria-hidden", introHidden);
+		content.setAttribute("aria-hidden", contentHidden);
 
 		//output to DOM
 		nameEl.innerText   = name;
