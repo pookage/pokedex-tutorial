@@ -42,6 +42,10 @@
 					box-shadow: 0 0 var(--item_shadow_size) 0 rgba(0,0,0,0.2);
 					cursor: pointer;
 				}
+				.pokemon-input:disabled ~ .label {
+					opacity: 0.3;
+					pointer-events: none;
+				}
 				.pokemon-input:checked ~ .label {}
 					.label::before {
 						content: "";
@@ -91,6 +95,10 @@
 						text-shadow: -0.15em 0.15em 0 #3B4CCA,
 									0.05em -0.05em 0 #aaa;
 						transform: translateX(0.5em);
+					}
+
+					.pokemon-input:disabled ~ .label .idle-sprite {
+						filter: brightness(0);
 					}
 	.details {
 		flex: 1 0 50%;
