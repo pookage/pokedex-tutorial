@@ -2,9 +2,12 @@
 	display: flex;
 	height: 100%;
 	width: 100%;
+	background-color: var(--color__bg);
+	--shadow__poke_text: -0.15em 0.15em 0 var(--color__shadow),
+						0.05em -0.05em 0 var(--color__text__passive);
 }
 	.glossary {
-		flex: 1 0 50%;
+		flex: 0 0 30em;
 	}
 		.pokemon-list {
 			padding: var(--item_shadow_size) 0 0 var(--item_shadow_size);
@@ -12,10 +15,8 @@
 			--item_shadow_size: 0.75em;
 		}
 			.item {
+				width: 90%;
 				position: relative;
-			}
-			.item + .item {
-				/*border-top: 1px solid var(--color__contrast);*/
 			}
 				.pokemon-input {
 					position: absolute;
@@ -27,9 +28,9 @@
 					border-radius: 0.25em;
 					position: relative;
 					z-index: 1;
-					color: #444;
+					color: var(--color__text);
 					align-items: center;
-					background-color: var(--color__bg);
+					background-color: transparent;
 					box-shadow: 0 0 var(--item_shadow_size) 0 rgba(0,0,0,0);
 					transition: background-color .3s,
 								box-shadow .3s;
@@ -86,7 +87,7 @@
 							top: 0;
 							right: -0.62em;
 							transform: translateX(100%);
-							color: #aaa;
+							color: var(--color__text__passive);
 							text-shadow: none;
 						}
 					.idle-sprite,
@@ -100,9 +101,8 @@
 					.pokemon-input ~ .label:hover .name,
 					.pokemon-input:focus ~ .label .name,
 					.pokemon-input:checked ~ .label .name {
-						color: #ffde00;
-						text-shadow: -0.15em 0.15em 0 #3B4CCA,
-									0.05em -0.05em 0 #aaa;
+						color: var(--color__pikachu);
+						text-shadow: var(--shadow__poke_text);
 						transform: translateX(0.5em);
 					}
 
@@ -110,19 +110,21 @@
 						filter: brightness(0);
 					}
 	.details {
-		flex: 1 0 50%;
-		display: flex;
+		flex: 1 1 auto;
 		height: 100%;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		font-size: 1rem;
 	}
 		.intro {
+			display: flex;
+			height: 100%;
+			width: 100%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			text-align: center;
 		}
 		.intro[aria-hidden="false"] {
-			display: block;
+			display: flex;
 		}
 		.intro[aria-hidden="true"] {
 			display: none;
@@ -154,11 +156,107 @@
 					display: inline-block;
 					margin-top: 0.62em;
 				}
-		.container {}
+		.container {
+			height: 100%;
+			padding: 1.62em 1.62em 1.62em 0;
+			flex-direction: column;
+		}
 		.container[aria-hidden="false"] {
-			display: block;
+			display: flex;
 		}
 		.container[aria-hidden="true"] {
 			display: none;
 		}
+			.container .heading {
+				margin-bottom: 0.62em;
+				color: var(--color__pikachu);
+				text-shadow: var(--shadow__poke_text);
+			}
+			.stats {
+				display: grid;
+				margin-bottom: 1em;
+				grid-template-columns: 10em auto;
+				grid-template-rows: auto;
+			}
+				.stat {
+					grid-column: 1 / 2;
+					text-align: right;
+				}
+				.value {
+					grid-column: 2 / 3;
+					display: flex;
+					margin-left: 1em;
+					align-items: center;
+					text-align: left;
+				}
+					.value::after {
+						display: inline-block;
+						margin-left: 0.5em;
+					}
+					.value.height::after {
+						content: "cm";
+					}
+					.value.weight::after {
+						content: "kg";
+					}
+					.types {
+						list-style-type: none;
+					}
+						.type {
+							display: inline-block;
+							padding: 0.62em 1em;
+							border-radius: 0.3em;
+							vertical-align: top;
+							position: relative;
+							background-color: #ccc;
+						}
+							.type::after {
+								content: "";
+								display: block;
+								width: 100%;
+								height: 50%;
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								z-index: 0;
+								background-color: rgba(255,255,255,0.15);
+							}
+							.type .text {
+								position: relative;
+								z-index: 1;
+							}
+						.type + .type {
+							margin-left: 0.62em;
+
+						}
+						.type[data-type="grass"]{
+							background-color: var(--color__element__grass);
+						}
+						.type[data-type="poison"]{
+							background-color: var(--color__element__poision);
+						}
+			.media {
+				flex: 1 0 auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+				.asset {
+					order: 2;
+					width: 100%;
+					padding: 2.62em;
+					text-align: center;
+					background-color: var(--color__bg__alt);
+					box-shadow: -0.62em  0.62em 0 0 #ddd,
+								 0.62em -0.62em 0 0 #eee;
+				}
+					.asset .image {
+						filter: drop-shadow(-1em 1em var(--color__text)) 
+								drop-shadow(1em -1em var(--color__text__passive));
+					}
+				.caption {
+					order: 1;
+					margin-top: 1.62em;
+				}
+
 		

@@ -4,7 +4,7 @@ html {
 	line-height: 1.5;
 }
 
-p, input, label {
+.body {
 	font-size: 1em;
 }
 

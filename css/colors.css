@@ -1,7 +1,13 @@
 :root {
+	--color__text: #444;
+	--color__text__passive: #aaa;
 	--color__accent: #E83707;
-	--color__contrast: #CCC;
+	--color__pikachu: #ffde00;
+	--color__shadow: #3B4CCA;
 	--color__bg: #FAFAFA;
-	--color__bg__alt: #f5f5f5;
+	--color__bg__alt: #f4f4f4;
+
+	--color__element__grass: #78C850;
+	--color__element__poision: #A040A0;
 }
 

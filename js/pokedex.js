@@ -75,18 +75,13 @@ function init(){
 		elements: Object.freeze(elements)
 	};
 
-	// DOM RETRIEVAL
-	//----------------------
-	const glossary = document.getElementById("glossary");
-	const inputs   = glossary.getElementsByClassName("pokemon-input");
-
-
-	//BINDING SCOPE
-	//----------------------
+	//scope binding
 	setActivePokemon = setActivePokemon.bind(true, state);
 	updateDetails    = updateDetails.bind(true, state);
 
+	//intialise dom elements
 	populateGlossary(elements.list, Object.values(pokemon));
+
 
 	//EVENT HANDLERS
 	//-----------------------
@@ -218,8 +213,15 @@ function init(){
 		const typesFragment = document.createDocumentFragment();
 		for(let elementalType of types){
 			const item     = document.createElement("li");
-			item.innerText = elementalType;
+			const label     = document.createElement("span");
 
+			label.innerText = elementalType;
+			label.classList.add("text");
+
+			item.classList.add("type");
+			item.setAttribute("data-type", elementalType.toLowerCase());
+
+			item.appendChild(label);
 			typesFragment.appendChild(item);
 		}
 

@@ -14,11 +14,21 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<nav id="glossary" class="glossary" >
-				<ul id="list" class="pokemon-list"></ul>
+			<nav 
+				id="glossary" 
+				class="glossary"
+			>
+				<ul 
+					id="list" 
+					class="pokemon-list">		
+				</ul>
 			</nav>
-			<main class="details" >
-				<header class="intro" id="intro" aria-hidden="false">
+			<main class="details">
+				<header 
+					id="intro" 
+					class="intro" 
+					aria-hidden="false"
+				>
 					<h2 class="logo heading">
 						<img
 							class="image" 
@@ -36,31 +46,62 @@
 					</p>
 				</header>
 
-				<div class="container" id="content" aria-hidden="true">
-					<h2 id="name"></h2>
-					<dl>
-						<dt>Id</dt>
-						<dd id="poke-id"></dd>
+				<div 
+					id="content" 
+					class="container" 
+					aria-hidden="true"
+				>
+					<h2 
+						id="name"
+						class="heading">		
+					</h2>
+					<dl class="stats">
+						<dt class="stat subheading">
+							Id
+						</dt>
+						<dd 
+							id="poke-id"
+							class="value body">		
+						</dd>
 
-						<dt>Types</dt>
-						<dd>
-							<ul id="types">
+						<dt class="stat subheading">
+							Types
+						</dt>
+						<dd class="value body">
+							<ul 
+								id="types"
+								class="types">		
 							</ul>
 						</dd>
 
-						<dt>Height</dt>
-						<dd id="height"></dd>
+						<dt class="stat subheading">
+							Height
+						</dt>
+						<dd 
+							id="height"
+							class="value height body">		
+						</dd>
 
-						<dt>Weight</dt>
-						<dd id="weight"></dd>			
+						<dt class="stat subheading">
+							Weight
+						</dt>
+						<dd 
+							id="weight"
+							class="value weight body">		
+						</dd>			
 					</dl>
-					<figure>
-						<img
-							id="image" 
-							src="" 
-							alt="Description of Pokemon" 
-						/>
-						<figcaption id="entry">
+					<figure class="media">
+						<div class="asset">
+							<img
+								id="image"
+								class="image" 
+								src="" 
+								alt="Description of Pokemon" 
+							/>
+						</div>
+						<figcaption 
+							id="entry"
+							class="caption">		
 						</figcaption>
 					</figure>
 				</div>

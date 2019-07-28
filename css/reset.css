@@ -8,3 +8,7 @@
 html, body {
 	height: 100%;
 }
+
+p, input, label {
+	font-size: 1em;
+}
