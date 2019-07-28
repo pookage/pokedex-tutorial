@@ -1,0 +1,50 @@
+.wrapper {
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+	.glossary {
+		flex: 1 0 50%;
+	}	
+	.details {
+		flex: 1 0 50%;
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-size: 1rem;
+	}
+		.intro {
+			text-align: center;
+		}
+			.logo {
+				margin-bottom: 0.62em;
+			}
+				.heading .image {
+					display: block;
+					height: 2.62em;
+					margin: 0 auto;
+				}
+			.title {
+				text-transform: lowercase;
+				font-weight: 900;
+				color: var(--color__accent);
+				font-size: 1;
+			}
+				.title::before {
+					content: "";
+					display: block;
+					font-size: 4.25em;
+					height: 1em;
+					width: 1em;
+					margin: 0 auto;
+					background: url(./../assets/2d/logos/icon__pokedex.svg) center / contain no-repeat;
+				}
+				.title .text {
+					display: inline-block;
+					margin-top: 0.62em;
+				}
+		.container {
+			display: none;
+		}

@@ -4,104 +4,131 @@
 		<meta charset="UTF-8">
 		<title>Pokedex</title>
 
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/colors.css">
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/styles.css">
+
 		<script src="js/pokedex.js"></script>
 	</head>
 	<body>
-		<nav id="glossary">
-			<ul>
-				<li>
-					<input
-						id="poke-001"
-						class="pokemon-input"   
-						data-pokeid="001"
-						type="radio" 
-						name="pokemon" 
-					/>
-					<label 
-						for="poke-001">
-						Bulbasaur
-					</label>
-				</li>
-				<li>
-					<input
-						id="poke-004"
-						class="pokemon-input"  
-						data-pokeid="004"
-						type="radio" 
-						name="pokemon" 
-					/>
-					<label 
-						for="poke-004">
-						Charmander
-					</label>
-				</li>
-				<li>
-					<input
-						id="poke-007" 
-						class="pokemon-input"
-						data-pokeid="007"
-						type="radio" 
-						name="pokemon" 
-					/>
-					<label 
-						for="poke-007">
-						Squirtle
-					</label>
-				</li>
-				<li>
-					<input 
-						id="poke-025"
-						class="pokemon-input" 
-						data-pokeid="025"
-						type="radio" 
-						name="pokemon" 
-					/>
-					<label 
-						for="poke-025">
-						Pikachu
-					</label>
-				</li>
-			</ul>
-		</nav>
-		<main id="details">
-			<h1 id="name">
-				Pokemon Name
-			</h1>
-			<dl>
-				<dt>Id</dt>
-				<dd id="poke-id">000</dd>
-
-				<dt>Types</dt>
-				<dd>
-					<ul id="types">
-						<li>Type A</li>
-						<li>Type B</li>
-						<li>Type C</li>
-					</ul>
-				</dd>
-
-				<dt>Height</dt>
-				<dd id="height">000</dd>
-
-				<dt>Weight</dt>
-				<dd id="weight">0.00</dd>			
-			</dl>
-			<figure>
-				<img
-					id="image" 
-					src="" 
-					alt="Description of Pokemon" 
-				/>
-				<figcaption id="entry">
+		<div class="wrapper">
+			<nav id="glossary" class="glossary">
+				<ul>
+					<li>
+						<input
+							id="poke-001"
+							class="pokemon-input"   
+							data-pokeid="001"
+							type="radio" 
+							name="pokemon" 
+						/>
+						<label 
+							for="poke-001">
+							Bulbasaur
+						</label>
+					</li>
+					<li>
+						<input
+							id="poke-004"
+							class="pokemon-input"  
+							data-pokeid="004"
+							type="radio" 
+							name="pokemon" 
+						/>
+						<label 
+							for="poke-004">
+							Charmander
+						</label>
+					</li>
+					<li>
+						<input
+							id="poke-007" 
+							class="pokemon-input"
+							data-pokeid="007"
+							type="radio" 
+							name="pokemon" 
+						/>
+						<label 
+							for="poke-007">
+							Squirtle
+						</label>
+					</li>
+					<li>
+						<input 
+							id="poke-025"
+							class="pokemon-input" 
+							data-pokeid="025"
+							type="radio" 
+							name="pokemon" 
+						/>
+						<label 
+							for="poke-025">
+							Pikachu
+						</label>
+					</li>
+				</ul>
+			</nav>
+			<main class="details">
+				<header class="intro" id="intro">
+					<h2 class="logo heading">
+						<img
+							class="image" 
+							src="assets/2d/logos/logo__pokemon.svg" 
+							alt="Pokemon." 
+						/>
+					</h2>
+					<h1 class="title heading">
+						<span class="text">
+							Pokédex
+						</span>
+					</h1>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorum illum, voluptatibus possimus quae totam rem adipisci necessitatibus vitae. Repellendus sint nulla obcaecati nostrum maiores dignissimos, beatae ut cum nobis.
+						Select a Pokemon to begin.
 					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-					</p>
-				</figcaption>
-			</figure>
-		</main>
-	
+				</header>
+
+				<div class="container">
+					<h2 id="name">
+						Pokemon Name
+					</h2>
+					<dl>
+						<dt>Id</dt>
+						<dd id="poke-id">000</dd>
+
+						<dt>Types</dt>
+						<dd>
+							<ul id="types">
+								<li>Type A</li>
+								<li>Type B</li>
+								<li>Type C</li>
+							</ul>
+						</dd>
+
+						<dt>Height</dt>
+						<dd id="height">000</dd>
+
+						<dt>Weight</dt>
+						<dd id="weight">0.00</dd>			
+					</dl>
+					<figure>
+						<img
+							id="image" 
+							src="" 
+							alt="Description of Pokemon" 
+						/>
+						<figcaption id="entry">
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorum illum, voluptatibus possimus quae totam rem adipisci necessitatibus vitae. Repellendus sint nulla obcaecati nostrum maiores dignissimos, beatae ut cum nobis.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+							</p>
+						</figcaption>
+					</figure>
+				</div>
+			</main>
+		</div>
 	</body>
 </html>
