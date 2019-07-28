@@ -71,7 +71,7 @@ function init(){
 	// DOM RETRIEVAL
 	//----------------------
 	const glossary = document.getElementById("glossary");
-	const buttons  = glossary.getElementsByClassName("pokemon");
+	const inputs   = glossary.getElementsByClassName("pokemon-input");
 
 
 	//BINDING SCOPE
@@ -82,18 +82,28 @@ function init(){
 
 	//Adding event listeners
 	//----------------------
-	for(let button of buttons){
-		button.addEventListener("click", setActivePokemon);
+	for(let input of inputs){
+		input.addEventListener("change", setActivePokemon);
 	}
 
 
 	//EVENT HANDLERS
 	//-----------------------
 	function setActivePokemon(currState, event){
-		const { pokeid }        = event.target.dataset;
-		currState.activePokemon = pokeid;
 
-		updateDetails();
+		const {
+			target: {
+				dataset,
+				checked
+			}
+		} = event;
+
+		if(checked){
+			const { pokeid }        = dataset;
+			currState.activePokemon = pokeid;
+
+			updateDetails();
+		}
 	}//setActivePokemon
 
 
