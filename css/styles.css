@@ -6,21 +6,68 @@
 	.glossary {
 		flex: 1 0 50%;
 	}
-		.pokemon-list {}
-			.item {}
-				.pokemon-input {}
-				.label {
-					display: inline-flex;
-					align-items: center;
+		.pokemon-list {
+			padding: var(--item_shadow_size) 0 0 var(--item_shadow_size);
+			list-style-type: none;
+			--item_shadow_size: 0.75em;
+		}
+			.item {
+				position: relative;
+			}
+			.item + .item {
+				/*border-top: 1px solid var(--color__contrast);*/
+			}
+				.pokemon-input {
+					position: absolute;
+					opacity: 0;
 				}
+				.label {
+					display: flex;
+					padding: 1em;
+					border-radius: 0.25em;
+					position: relative;
+					z-index: 1;
+					color: #444;
+					align-items: center;
+					background-color: var(--color__bg);
+					box-shadow: 0 0 var(--item_shadow_size) 0 rgba(0,0,0,0);
+					transition: background-color .3s,
+								box-shadow .3s;
+					--sprite_height: 2.62em;
+				}
+				.pokemon-input:not(:checked) ~ .label:hover,
+				.pokemon-input:not(:checked):focus ~ .label {
+					z-index: 2;
+					background-color: var(--color__bg__alt);
+					box-shadow: 0 0 var(--item_shadow_size) 0 rgba(0,0,0,0.2);
+					cursor: pointer;
+				}
+				.pokemon-input:checked ~ .label {}
+					.label::before {
+						content: "";
+						display: inline-block;
+						height: var(--sprite_height);
+						width: 0.38em;
+						margin-right: 0.62em;
+						position: absolute;
+						top: 0
+						left: 0;
+						background-color: var(--color__accent);
+						transform: scaleX(0);
+						transform-origin: 0% 50%;
+						transition: transform .3s;
+					}
+					.pokemon-input:checked ~ .label::before {
+						transform: scaleX(1);
+					} 
 					.idle-sprite {
 						content: "";
 						display: inline-block;
-						font-size: 2.62em;
+						font-size: var(--sprite_height);
 						height: 1em;
 						width: 1em;
 						background-size: contain;
-						background-position: center;
+						background-position: right center;
 						background-repeat: no-repeat;
 					}
 					.label .name {
@@ -28,6 +75,22 @@
 						margin-left: 0.62em;
 						position: relative;
 						top: 0.3em;
+					}
+					.idle-sprite,
+					.label .name {
+						transform: translateX(0);
+						transition: transform .3s;
+					}
+					.pokemon-input ~ .label:hover .idle-sprite,
+					.pokemon-input:focus ~ .label .idle-sprite,
+					.pokemon-input:checked ~ .label .idle-sprite,
+					.pokemon-input ~ .label:hover .name,
+					.pokemon-input:focus ~ .label .name,
+					.pokemon-input:checked ~ .label .name {
+						color: #ffde00;
+						text-shadow: -0.15em 0.15em 0 #3B4CCA,
+									0.05em -0.05em 0 #aaa;
+						transform: translateX(0.5em);
 					}
 	.details {
 		flex: 1 0 50%;
